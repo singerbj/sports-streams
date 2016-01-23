@@ -1,6 +1,10 @@
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
     display: none !important;
 }
-h1, h4 {
+h1 {
     text-align: center;
+}
+body {
+    padding-left: 1em;
+    padding-right: 1em;
 }
