@@ -12,7 +12,7 @@ app.controller('Controller', ["$scope", "$http", "$timeout", "$q", function($sco
             date.setMinutes(0);
             date.setMilliseconds(0);
             self.games = data.data.children.filter(function(child){
-                return (child.data.created_utc * 1000) > date.getTime() //&& child.data.title.indexOf('Game Thread') > -1;
+                return (child.data.created_utc * 1000) > date.getTime();
             });
 
             self.games.forEach(function(game){
@@ -21,7 +21,7 @@ app.controller('Controller', ["$scope", "$http", "$timeout", "$q", function($sco
                         if(child.data.body){
                             var r;
                             var result = URI.withinString(child.data.body, function(url) {
-                                r = url.replace('*', '').replace('*', '');
+                                r = url.replace(/\*/g, '');
                                 return url;
                             });
                             if(r){
