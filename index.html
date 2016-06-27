@@ -18,8 +18,8 @@
         <br>
         <div class="row">
             <div row="col-md-12">
-                <span ng-repeat="sub in c.subs">
-                    <a href ng-click="c.getStreams(sub)">{{ sub }}</a>
+                <span class="sub" ng-repeat="sub in c.subs">
+                    <a href class="btn btn-default" ng-click="c.getStreams(sub)">{{ sub }}</a>
                 </span>
 
                 <h3>{{ c.sub }}</h3>

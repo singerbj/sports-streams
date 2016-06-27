@@ -6,13 +6,13 @@ app.controller('Controller', ["$scope", "$http", "$timeout", "$q", function($sco
 
     self.getStreams = function(sub){
         self.sub = sub;
-        $http.get('//www.reddit.com/r/' + sub + '/search.json?q=Game+Thread%3A&sort=news&restrict_sr=on&t=day&limit=100').success(function(data){
+        $http.get('//www.reddit.com/r/' + sub + '/search.json?q=Thread%3A&sort=news&restrict_sr=on&t=day&limit=100').success(function(data){
             var date = (new Date());
             date.setHours(0);
             date.setMinutes(0);
             date.setMilliseconds(0);
             self.games = data.data.children.filter(function(child){
-                return (child.data.created_utc * 1000) > date.getTime() && child.data.title.indexOf('Game Thread') > -1;
+                return (child.data.created_utc * 1000) > date.getTime() //&& child.data.title.indexOf('Game Thread') > -1;
             });
 
             self.games.forEach(function(game){
